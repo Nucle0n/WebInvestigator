@@ -1,6 +1,7 @@
 from collections import Counter
 
 from lib.analyzer.filename import FilenameFinding
+from lib.model.image import ImageInfo
 from lib.model.inventory import Inventory
 from lib.model.oembed import OEmbedFile
 from lib.utils import format_size
@@ -102,5 +103,35 @@ def display_oembed_files(files: list[OEmbedFile]) -> None:
 
         for key, value in oembed_file.data.items():
             print(f"{key:20} : {value}")
+
+        print()
+   
+
+def display_images(images: list[ImageInfo]) -> None:
+    """Affiche les informations techniques des images analysées."""
+    print()
+    print("=" * 76)
+    print("IMAGES")
+    print("=" * 76)
+
+    if not images:
+        print("Aucune image détectée.")
+        return
+
+    print(f"{len(images)} image(s)\n")
+
+    for image in images:
+        print("-" * 76)
+        print(image.relative_path)
+        print("-" * 76)
+
+        if image.width is None or image.height is None:
+            dimensions = "Inconnues"
+        else:
+            dimensions = f"{image.width} x {image.height}"
+
+        print(f"{'Dimensions':20} : {dimensions}")
+        print(f"{'Taille':20} : {format_size(image.filesize)}")
+        print(f"{'Extension':20} : {image.extension}")
 
         print()

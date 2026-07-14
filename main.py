@@ -6,10 +6,12 @@ from config import (
     create_output_directories,
 )
 from lib.analyzer.filename import find_suspicious_filenames
+from lib.analyzer.image import analyze_images
 from lib.analyzer.oembed import load_oembed_files
 from lib.model.analysis import AnalysisResult
 from lib.output.console import (
     display_filename_findings,
+    display_images,
     display_inventory,
     display_oembed_files,
 )
@@ -75,6 +77,11 @@ def main() -> None:
         analysis.inventory
     )
     display_oembed_files(analysis.oembed_files)
+
+    analysis.images = analyze_images(
+        analysis.inventory
+    )
+    display_images(analysis.images)
 
     output_file = REPORTS_JSON_DIR / "inventory.json"
     export_inventory_json(
