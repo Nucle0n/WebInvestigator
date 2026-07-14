@@ -54,7 +54,9 @@ dedicated to a single investigation.
 
 ## Tests
 
-- [ ] Unit tests
+- [x] Scanner tests
+- [ ] Analyzer tests
+- [ ] Output tests
 
 # Future Infrastructure
 
