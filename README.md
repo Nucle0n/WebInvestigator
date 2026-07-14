@@ -12,6 +12,10 @@ Rather than being dedicated to a single investigation, WebInvestigator provides 
 
 The project focuses on producing structured technical information that can be used during OSINT investigations, digital forensics, or website analysis.
 
+WebInvestigator originated from a real-world investigation involving a mirrored Shopify website. As the investigation progressed, several reusable analysis tools were developed and gradually evolved into a generic framework.
+
+The framework is therefore developed and validated using real-world investigations as reference datasets while remaining independent from any specific case.
+
 ---
 
 ## Project Principles
