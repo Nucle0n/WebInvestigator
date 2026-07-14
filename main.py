@@ -1,24 +1,24 @@
 import sys
-from collections import Counter
 
 from config import (
     REPORTS_JSON_DIR,
     SITE_MIRROR_DIR,
     create_output_directories,
 )
-from lib.extractor import Inventory, scan_directory
-from lib.oembed_parser import (
-    load_oembed_files,
+from lib.analyzer.filename import find_suspicious_filenames
+from lib.analyzer.oembed import load_oembed_files
+from lib.model.analysis import AnalysisResult
+from lib.output.console import (
+    display_filename_findings,
+    display_inventory,
     display_oembed_files,
 )
-from lib.parser import FilenameFinding, find_suspicious_filenames
-from lib.report import export_inventory_json
-from lib.utils import format_size
+from lib.output.json import export_inventory_json
+from lib.scanner import scan_directory
 
 
-APP_NAME = "Shopify OSINT Toolkit"
+APP_NAME = "Web Investigator"
 APP_VERSION = "0.1.0"
-TOP_FILES_LIMIT = 20
 
 
 def display_header() -> None:
@@ -47,83 +47,6 @@ def validate_mirror_directory() -> bool:
     return True
 
 
-def display_inventory(inventory: Inventory) -> None:
-    """Affiche les statistiques principales de l'inventaire."""
-    print()
-    print("=" * 76)
-    print("INVENTAIRE DU MIROIR")
-    print("=" * 76)
-
-    print(f"Nombre de fichiers : {len(inventory.files)}")
-    print(f"Taille totale       : {format_size(inventory.total_size)}")
-
-    print()
-    print("FICHIERS PAR EXTENSION")
-    print("-" * 76)
-
-    for extension, count in inventory.extension_counts.most_common():
-        print(f"{extension:<24} {count:>6}")
-
-    largest_files = sorted(
-        inventory.files,
-        key=lambda file_info: file_info.size,
-        reverse=True,
-    )[:TOP_FILES_LIMIT]
-
-    print()
-    print(f"{TOP_FILES_LIMIT} PLUS GROS FICHIERS")
-    print("-" * 76)
-
-    for index, file_info in enumerate(largest_files, start=1):
-        size = format_size(file_info.size)
-        print(f"{index:>2}. {size:>12}  {file_info.relative_path}")
-
-
-def display_filename_findings(
-    findings: list[FilenameFinding],
-) -> None:
-    """Affiche les mots-clés détectés dans les noms de fichiers."""
-    print()
-    print("=" * 76)
-    print("INDICES DANS LES NOMS DE FICHIERS")
-    print("=" * 76)
-
-    if not findings:
-        print("Aucun mot-clé particulier détecté.")
-        return
-
-    keyword_counts = Counter(finding.keyword for finding in findings)
-
-    print("RÉSUMÉ")
-    print("-" * 76)
-
-    for keyword, count in keyword_counts.most_common():
-        print(f"{keyword:<30} {count:>5}")
-
-    print()
-    print("DÉTAILS")
-    print("-" * 76)
-
-    findings_by_keyword: dict[str, list[FilenameFinding]] = {}
-
-    for finding in findings:
-        findings_by_keyword.setdefault(finding.keyword, []).append(finding)
-
-    for keyword in sorted(findings_by_keyword):
-        print()
-        print(f"[{keyword}]")
-
-        unique_paths = sorted(
-            {
-                finding.relative_path
-                for finding in findings_by_keyword[keyword]
-            }
-        )
-
-        for relative_path in unique_paths:
-            print(f"  - {relative_path}")
-
-
 def main() -> None:
     """Point d'entrée principal du programme."""
     display_header()
@@ -135,17 +58,29 @@ def main() -> None:
     print()
     print("Analyse du miroir en cours...")
 
-    inventory = scan_directory(SITE_MIRROR_DIR)
-    display_inventory(inventory)
+    analysis = AnalysisResult(
+        inventory=scan_directory(
+            SITE_MIRROR_DIR
+        )
+    )
 
-    filename_findings = find_suspicious_filenames(inventory)
-    display_filename_findings(filename_findings)
-    
-    oembed_files = load_oembed_files(inventory)
-    display_oembed_files(oembed_files)
+    display_inventory(analysis.inventory)
+
+    analysis.filename_findings = find_suspicious_filenames(
+        analysis.inventory
+    )
+    display_filename_findings(analysis.filename_findings)
+
+    analysis.oembed_files = load_oembed_files(
+        analysis.inventory
+    )
+    display_oembed_files(analysis.oembed_files)
 
     output_file = REPORTS_JSON_DIR / "inventory.json"
-    export_inventory_json(inventory, output_file)
+    export_inventory_json(
+        analysis.inventory,
+        output_file,
+    )
 
     print()
     print("[OK] Inventaire JSON généré :")
