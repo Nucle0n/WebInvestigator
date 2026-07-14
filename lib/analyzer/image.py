@@ -1,3 +1,7 @@
+from pathlib import Path
+
+from PIL import Image, UnidentifiedImageError
+
 from lib.model.image import ImageInfo
 from lib.model.inventory import Inventory
 
@@ -20,6 +24,18 @@ def is_supported_image(extension: str) -> bool:
     return extension.lower() in IMAGE_EXTENSIONS
 
 
+def read_image_dimensions(
+    image_path: Path,
+) -> tuple[int | None, int | None]:
+    """Return image dimensions using Pillow."""
+
+    try:
+        with Image.open(image_path) as image:
+            return image.width, image.height
+    except (OSError, UnidentifiedImageError):
+        return None, None
+
+
 def analyze_images(
     inventory: Inventory,
 ) -> list[ImageInfo]:
@@ -28,10 +44,11 @@ def analyze_images(
     images: list[ImageInfo] = []
 
     for file in inventory.files:
-
         if not is_supported_image(file.extension):
             continue
-
+            
+        width, height = read_image_dimensions(file.path)
+        
         images.append(
             ImageInfo(
                 path=file.path,
@@ -39,6 +56,8 @@ def analyze_images(
                 filename=file.path.name,
                 extension=file.extension,
                 filesize=file.size,
+                width=width,
+                height=height,
             )
         )
 
