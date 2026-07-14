@@ -7,6 +7,7 @@ from config import (
 )
 from lib.analyzer.filename import find_suspicious_filenames
 from lib.analyzer.oembed import load_oembed_files
+from lib.model.analysis import AnalysisResult
 from lib.output.console import (
     display_filename_findings,
     display_inventory,
@@ -57,17 +58,29 @@ def main() -> None:
     print()
     print("Analyse du miroir en cours...")
 
-    inventory = scan_directory(SITE_MIRROR_DIR)
-    display_inventory(inventory)
+    analysis = AnalysisResult(
+        inventory=scan_directory(
+            SITE_MIRROR_DIR
+        )
+    )
 
-    filename_findings = find_suspicious_filenames(inventory)
-    display_filename_findings(filename_findings)
+    display_inventory(analysis.inventory)
 
-    oembed_files = load_oembed_files(inventory)
-    display_oembed_files(oembed_files)
+    analysis.filename_findings = find_suspicious_filenames(
+        analysis.inventory
+    )
+    display_filename_findings(analysis.filename_findings)
+
+    analysis.oembed_files = load_oembed_files(
+        analysis.inventory
+    )
+    display_oembed_files(analysis.oembed_files)
 
     output_file = REPORTS_JSON_DIR / "inventory.json"
-    export_inventory_json(inventory, output_file)
+    export_inventory_json(
+        analysis.inventory,
+        output_file,
+    )
 
     print()
     print("[OK] Inventaire JSON généré :")

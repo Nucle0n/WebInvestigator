@@ -1,5 +1,4 @@
-from dataclasses import dataclass
-
+from lib.model.filename import FilenameFinding
 from lib.model.inventory import Inventory
 
 
@@ -20,14 +19,6 @@ DEFAULT_FILENAME_KEYWORDS = (
     "capture_d_ecran",
     "screenshot",
 )
-
-
-@dataclass(frozen=True, slots=True)
-class FilenameFinding:
-    """Correspondance trouvée dans le nom d'un fichier."""
-
-    keyword: str
-    relative_path: str
 
 
 def find_suspicious_filenames(
