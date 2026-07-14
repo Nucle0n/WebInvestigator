@@ -1,0 +1,24 @@
+# Environnement virtuel
+.venv/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+
+# Outils et IDE
+.vscode/
+.idea/
+.pytest_cache/
+
+# Système
+Thumbs.db
+.DS_Store
+
+# Investigation data
+investigations/*/01_site/
+investigations/*/02_youtube/
+investigations/*/03_domaines/
+investigations/*/04_medias/
+investigations/*/05_identifiants/
+investigations/*/logs/
+investigations/*/reports/
