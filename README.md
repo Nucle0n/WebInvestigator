@@ -1,49 +1,93 @@
 # WebInvestigator
 
-> Modular Python framework for OSINT and forensic analysis of mirrored websites.
+> Modular Python framework for offline OSINT and forensic analysis of mirrored websites.
 
 ---
 
 ## Overview
 
-WebInvestigator is a modular Python framework designed to analyze local copies of websites (HTTrack, Wget, etc.) in order to extract technical information useful during OSINT investigations.
+WebInvestigator is an open-source Python framework designed to analyze local copies of websites mirrored with tools such as HTTrack or Wget.
 
-Rather than being dedicated to a single investigation, the framework aims to become a reusable toolbox capable of analyzing any mirrored website.
+Rather than being dedicated to a single investigation, WebInvestigator provides a reusable and extensible architecture capable of analyzing any mirrored website through independent analysis modules.
+
+The project focuses on producing structured technical information that can be used during OSINT investigations, digital forensics, or website analysis.
+
+---
+
+## Project Principles
+
+- Generic framework before investigation-specific features
+- Architecture evolves only when justified by a concrete need
+- One analyzer = one responsibility
+- Analyzers never print directly to the console
+- Analyzers return typed models
+- Outputs are handled by the output layer
+- Small commits with one conceptual change
+
+---
+
+# Architecture
+
+```
+Mirrored Website
+        │
+        ▼
+     Scanner
+        │
+        ▼
+    Inventory
+        │
+        ▼
+ AnalysisResult
+        │
+        ├── Filename Analyzer
+        ├── OEmbed Analyzer
+        ├── Image Analyzer
+        ├── HTML Analyzer
+        ├── JavaScript Analyzer
+        ├── CSS Analyzer
+        └── Shopify Analyzer
+        │
+        ▼
+       Outputs
+```
 
 ---
 
 ## Current Features
 
-### Inventory
+### Scanner
 
-- Recursive scan of a mirrored website
-- File inventory
+- Recursive directory scanning
+- Complete file inventory
 - Extension statistics
 - Total size calculation
-- Largest files listing
+- Largest files detection
 
-### Filename Analysis
+### Implemented Analyzers
 
-- Detection of suspicious filenames
-- AI-related keywords
+#### Filename Analyzer
+
+- Suspicious filename detection
+- AI-related filename detection
 - Screenshot detection
 - Reference image detection
 
-### Shopify
+#### OEmbed Analyzer
 
-- Parsing of `.oembed` files
+- `.oembed` parsing
 - Product metadata extraction
 
-### Reports
+### Outputs
 
-- Console output
+- Console reporting
 - JSON export
 
 ---
 
 ## Project Structure
 
-```
+```text
 WebInvestigator/
 │
 ├── investigations/
@@ -60,12 +104,20 @@ WebInvestigator/
 │
 ├── config.py
 ├── main.py
+├── ROADMAP.md
 └── requirements.txt
 ```
 
 ---
 
 ## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Nucle0n/WebInvestigator.git
+cd WebInvestigator
+```
 
 Create a virtual environment:
 
@@ -85,7 +137,7 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Run:
+Run the framework:
 
 ```powershell
 python main.py
@@ -93,49 +145,21 @@ python main.py
 
 ---
 
-## Roadmap
+## Development Roadmap
 
-### Core Framework
+The complete development roadmap is available in:
 
-- [x] Recursive scanner
-- [x] Inventory model
-- [x] Console output
-- [x] JSON export
+```
+ROADMAP.md
+```
 
-### Current Analysis Modules
+Current focus:
 
-- [x] Filename analyzer
-- [x] OEmbed analyzer
-
-### Planned Modules
-
-- [ ] Shopify analyzer
-- [ ] HTML analyzer
-- [ ] JavaScript analyzer
-- [ ] CSS analyzer
-- [ ] Image analyzer
-- [ ] Metadata analyzer
-- [ ] Duplicate detector
-- [ ] CMS detector
-
-### Reporting
-
-- [ ] HTML report
-- [ ] CSV export
-- [ ] Markdown report
-- [ ] Timeline generation
-
----
-
-## Long-Term Goals
-
-- Shopify investigation toolkit
-- Automatic AI-generated media detection
-- Duplicate image detection
-- Metadata extraction
-- CMS fingerprinting
-- Plugin-based architecture
-- Multi-investigation support
+- Core framework
+- Image Analyzer
+- HTML Analyzer
+- Shopify Analyzer
+- Reporting improvements
 
 ---
 
@@ -145,10 +169,42 @@ Current version:
 
 **v0.1.0**
 
-The project is under active development and the architecture may evolve before the first stable release.
+Current status:
+
+- Core framework operational
+- Modular architecture established
+- Active development
+
+---
+
+## Planned Analysis Modules
+
+- Image analysis
+- HTML analysis
+- JavaScript analysis
+- CSS analysis
+- Shopify analysis
+- Metadata extraction
+- Duplicate detection
+- CMS fingerprinting
+
+---
+
+## Long-Term Vision
+
+The long-term goal is to build a generic, modular and extensible framework capable of analyzing mirrored websites independently of the underlying technology.
+
+Future capabilities may include:
+
+- Plugin system
+- Multi-investigation support
+- Image similarity analysis
+- Timeline generation
+- Graph visualization
+- Investigation comparison
 
 ---
 
 ## License
 
-License will be added before the first stable release.
+A license will be added before the first stable release.
