@@ -8,6 +8,7 @@ class ImageInfo:
 
     path: Path
     relative_path: Path
+    filename: str
     width: int
     height: int
     filesize: int
