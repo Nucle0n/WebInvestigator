@@ -3,10 +3,12 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 
+ACTIVE_INVESTIGATION = "AtelierDeLea"
+
 INVESTIGATION_ROOT = (
     PROJECT_ROOT
     / "investigations"
-    / "AtelierDeLea"
+    / ACTIVE_INVESTIGATION
 )
 
 SITE_MIRROR_DIR = (
