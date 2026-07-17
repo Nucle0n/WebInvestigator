@@ -1,5 +1,6 @@
 from collections import Counter
 
+from lib.model.duplicate import DuplicateImageGroup
 from lib.analyzer.filename import FilenameFinding
 from lib.model.image import ImageInfo
 from lib.model.inventory import Inventory
@@ -133,5 +134,47 @@ def display_images(images: list[ImageInfo]) -> None:
         print(f"{'Dimensions':20} : {dimensions}")
         print(f"{'Taille':20} : {format_size(image.filesize)}")
         print(f"{'Extension':20} : {image.extension}")
+        if image.sha256 is None:
+            sha256 = "Inconnu"
+        else:
+            sha256 = image.sha256
+
+        print(f"{'SHA-256':20} : {sha256}")
+
+        print()
+
+
+def display_duplicate_images(
+    duplicates: list[DuplicateImageGroup],
+) -> None:
+    """Affiche les groupes d'images identiques."""
+
+    print()
+    print("=" * 76)
+    print("IMAGES IDENTIQUES (SHA-256)")
+    print("=" * 76)
+
+    if not duplicates:
+        print("Aucun doublon détecté.")
+        return
+
+    total_images = sum(
+        len(group.images)
+        for group in duplicates
+    )
+
+    print(
+        f"{len(duplicates)} groupe(s), "
+        f"{total_images} image(s)"
+    )
+    print()
+
+    for group in duplicates:
+        print("-" * 76)
+        print(f"SHA-256 : {group.sha256}")
+        print()
+
+        for image in group.images:
+            print(f"  - {image.relative_path}")
 
         print()

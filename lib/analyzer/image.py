@@ -1,8 +1,11 @@
+import hashlib
+
 from pathlib import Path
 
 from PIL import Image, UnidentifiedImageError
 
 from lib.model.image import ImageInfo
+
 from lib.model.inventory import Inventory
 
 
@@ -22,6 +25,16 @@ def is_supported_image(extension: str) -> bool:
     """Return True if the extension belongs to an image."""
 
     return extension.lower() in IMAGE_EXTENSIONS
+
+
+def calculate_sha256(file_path: Path) -> str | None:
+    """Return the SHA-256 hash of a file."""
+
+    try:
+        with file_path.open("rb") as file:
+            return hashlib.file_digest(file, "sha256").hexdigest()
+    except OSError:
+        return None
 
 
 def read_image_dimensions(
@@ -46,9 +59,10 @@ def analyze_images(
     for file in inventory.files:
         if not is_supported_image(file.extension):
             continue
-            
+
         width, height = read_image_dimensions(file.path)
-        
+        sha256 = calculate_sha256(file.path)
+
         images.append(
             ImageInfo(
                 path=file.path,
@@ -58,6 +72,7 @@ def analyze_images(
                 filesize=file.size,
                 width=width,
                 height=height,
+                sha256=sha256,
             )
         )
 

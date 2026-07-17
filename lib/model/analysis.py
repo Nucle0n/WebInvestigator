@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 
+from lib.model.duplicate import DuplicateImageGroup
 from lib.model.filename import FilenameFinding
 from lib.model.image import ImageInfo
 from lib.model.inventory import Inventory
@@ -14,3 +15,4 @@ class AnalysisResult:
     filename_findings: list[FilenameFinding] = field(default_factory=list)
     oembed_files: list[OEmbedFile] = field(default_factory=list)
     images: list[ImageInfo] = field(default_factory=list)
+    duplicate_images: list[DuplicateImageGroup] = field(default_factory=list)

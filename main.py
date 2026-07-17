@@ -5,11 +5,13 @@ from config import (
     SITE_MIRROR_DIR,
     create_output_directories,
 )
+from lib.analyzer.duplicate import find_duplicate_images
 from lib.analyzer.filename import find_suspicious_filenames
 from lib.analyzer.image import analyze_images
 from lib.analyzer.oembed import load_oembed_files
 from lib.model.analysis import AnalysisResult
 from lib.output.console import (
+    display_duplicate_images,
     display_filename_findings,
     display_images,
     display_inventory,
@@ -82,6 +84,14 @@ def main() -> None:
         analysis.inventory
     )
     display_images(analysis.images)
+
+    analysis.duplicate_images = find_duplicate_images(
+        analysis.images
+    )
+    
+    display_duplicate_images(
+        analysis.duplicate_images
+    )
 
     output_file = REPORTS_JSON_DIR / "inventory.json"
     export_inventory_json(
