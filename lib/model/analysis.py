@@ -5,6 +5,7 @@ from lib.model.filename import FilenameFinding
 from lib.model.image import ImageInfo
 from lib.model.inventory import Inventory
 from lib.model.oembed import OEmbedFile
+from lib.model.similar import SimilarImageGroup
 
 
 @dataclass(slots=True)
@@ -16,3 +17,4 @@ class AnalysisResult:
     oembed_files: list[OEmbedFile] = field(default_factory=list)
     images: list[ImageInfo] = field(default_factory=list)
     duplicate_images: list[DuplicateImageGroup] = field(default_factory=list)
+    similar_images: list[SimilarImageGroup] = field(default_factory=list)

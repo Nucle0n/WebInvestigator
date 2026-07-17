@@ -39,7 +39,7 @@ dedicated to a single investigation.
 
 - [x] Filename Analyzer
 - [x] OEmbed Analyzer
-- [ ] Image Analyzer
+- [x] Image Analyzer
 - [ ] HTML Analyzer
 - [ ] JavaScript Analyzer
 - [ ] CSS Analyzer
@@ -71,11 +71,18 @@ dedicated to a single investigation.
 
 Goals:
 
-- image metadata
-- SHA-256 hashing
-- perceptual hashing (pHash)
-- duplicate detection
-- similarity search
+- [x] image metadata
+- [x] SHA-256 hashing
+- [x] perceptual hashing (pHash)
+- [x] duplicate detection
+- [x] similarity search
+
+Next improvements:
+
+- [ ] configurable Hamming distance threshold
+- [ ] perceptual similarity clustering
+- [ ] EXIF extraction
+- [ ] image thumbnails
 
 ---
 

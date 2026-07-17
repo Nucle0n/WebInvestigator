@@ -7,7 +7,10 @@ from config import (
 )
 from lib.analyzer.duplicate import find_duplicate_images
 from lib.analyzer.filename import find_suspicious_filenames
-from lib.analyzer.image import analyze_images
+from lib.analyzer.image import (
+    analyze_images,
+    find_matching_phashes,
+)
 from lib.analyzer.oembed import load_oembed_files
 from lib.model.analysis import AnalysisResult
 from lib.output.console import (
@@ -16,6 +19,7 @@ from lib.output.console import (
     display_images,
     display_inventory,
     display_oembed_files,
+    display_similar_images,
 )
 from lib.output.json import export_inventory_json
 from lib.scanner import scan_directory
@@ -88,9 +92,17 @@ def main() -> None:
     analysis.duplicate_images = find_duplicate_images(
         analysis.images
     )
-    
+
+    analysis.similar_images = find_matching_phashes(
+        analysis.images
+    )
+
     display_duplicate_images(
         analysis.duplicate_images
+    )
+    
+    display_similar_images(
+        analysis.similar_images
     )
 
     output_file = REPORTS_JSON_DIR / "inventory.json"
