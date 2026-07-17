@@ -1,10 +1,11 @@
 from collections import Counter
 
 from lib.model.duplicate import DuplicateImageGroup
-from lib.analyzer.filename import FilenameFinding
+from lib.model.filename import FilenameFinding
 from lib.model.image import ImageInfo
 from lib.model.inventory import Inventory
 from lib.model.oembed import OEmbedFile
+from lib.model.similar import SimilarImageGroup
 from lib.utils import format_size
 
 
@@ -139,7 +140,13 @@ def display_images(images: list[ImageInfo]) -> None:
         else:
             sha256 = image.sha256
 
+        if image.phash is None:
+            phash = "Inconnu"
+        else:
+            phash = image.phash
+
         print(f"{'SHA-256':20} : {sha256}")
+        print(f"{'pHash':20} : {phash}")
 
         print()
 
@@ -172,6 +179,42 @@ def display_duplicate_images(
     for group in duplicates:
         print("-" * 76)
         print(f"SHA-256 : {group.sha256}")
+        print()
+
+        for image in group.images:
+            print(f"  - {image.relative_path}")
+
+        print()
+
+
+def display_similar_images(
+    similar_images: list[SimilarImageGroup],
+) -> None:
+    """Affiche les groupes d'images similaires."""
+
+    print()
+    print("=" * 76)
+    print("IMAGES SIMILAIRES (pHash)")
+    print("=" * 76)
+
+    if not similar_images:
+        print("Aucune image similaire détectée.")
+        return
+
+    total_images = sum(
+        len(group.images)
+        for group in similar_images
+    )
+
+    print(
+        f"{len(similar_images)} groupe(s), "
+        f"{total_images} image(s)"
+    )
+    print()
+
+    for group in similar_images:
+        print("-" * 76)
+        print(f"pHash : {group.images[0].phash}")
         print()
 
         for image in group.images:
