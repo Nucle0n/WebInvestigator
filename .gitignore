@@ -22,3 +22,6 @@ investigations/*/04_medias/
 investigations/*/05_identifiants/
 investigations/*/logs/
 investigations/*/reports/
+
+# Local project continuity file
+PROJECT_BOOTSTRAP.md
