@@ -64,8 +64,12 @@ def phash_distance(
     
 def find_matching_phashes(
     images: list[ImageInfo],
+    max_distance: int,
 ) -> list[SimilarImageGroup]:
-    """Group images sharing the same perceptual hash."""
+    """Group images with identical or sufficiently close perceptual hashes."""
+
+    if max_distance < 0:
+        raise ValueError("max_distance must be greater than or equal to 0")
 
     images_by_phash: dict[str, list[ImageInfo]] = {}
 
@@ -80,6 +84,7 @@ def find_matching_phashes(
 
     groups: list[SimilarImageGroup] = []
 
+    # Preserve groups of images sharing exactly the same pHash.
     for matching_images in images_by_phash.values():
         if len(matching_images) < 2:
             continue
@@ -90,6 +95,29 @@ def find_matching_phashes(
                 images=matching_images,
             )
         )
+
+    # Compare each pair of distinct pHashes.
+    unique_phashes = list(images_by_phash)
+
+    for first_index, first_phash in enumerate(unique_phashes):
+        for second_phash in unique_phashes[first_index + 1:]:
+            distance = phash_distance(
+                first_phash,
+                second_phash,
+            )
+
+            if distance == 0 or distance > max_distance:
+                continue
+
+            groups.append(
+                SimilarImageGroup(
+                    max_distance=distance,
+                    images=[
+                        *images_by_phash[first_phash],
+                        *images_by_phash[second_phash],
+                    ],
+                )
+            )
 
     return groups
 

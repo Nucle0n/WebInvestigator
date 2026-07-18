@@ -1,6 +1,7 @@
 import sys
 
 from config import (
+    PHASH_MAX_DISTANCE,
     REPORTS_JSON_DIR,
     SITE_MIRROR_DIR,
     create_output_directories,
@@ -94,7 +95,8 @@ def main() -> None:
     )
 
     analysis.similar_images = find_matching_phashes(
-        analysis.images
+        analysis.images,
+        PHASH_MAX_DISTANCE,
     )
 
     display_duplicate_images(
