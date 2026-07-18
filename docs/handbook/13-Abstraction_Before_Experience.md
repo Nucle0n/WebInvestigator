@@ -1,5 +1,5 @@
 # Chapter 13
-# Abstraction and Generalization
+# Abstraction Before Experience
 
 ---
 
@@ -351,14 +351,10 @@ Until then, the simplest working solution is usually the best investment.
 
 ## Next Chapter
 
-The next chapter examines another architectural question that appears simple but influences every aspect of the framework:
+Simple architectures must also remain resilient.
 
-**Error Handling and Failure Philosophy.**
+The true quality of a framework is revealed not only by how it handles success, but by how it responds to failure.
 
-Should the framework stop at the first error?
+The next chapter explores Error Handling and Failure Philosophy, explaining why WebInvestigator treats failures as part of the investigation rather than as reasons to abandon it.
 
-Should it ignore failures?
-
-Or should it continue investigating despite imperfect evidence?
-
-The answers reveal another important aspect of WebInvestigator's design philosophy.
+**[Error Handling and Failure Philosophy](./14-Error_Handling_and_Failure_Philosophy.md)**

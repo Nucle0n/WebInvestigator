@@ -279,16 +279,10 @@ It should never replace it.
 
 ## Next Chapter
 
-Software architecture ultimately serves people.
+Architectural judgment should never depend upon a single person.
 
-Projects grow.
+As projects mature, the real challenge becomes ensuring that architectural knowledge survives long after its original authors have moved on.
 
-Contributors change.
+The next chapter explores Architecture Beyond Its Authors, explaining how architecture can become a shared understanding rather than personal expertise.
 
-Knowledge spreads.
-
-The next chapter explores one final question before the conclusion of this handbook:
-
-How can architectural knowledge survive longer than the people who originally created it?
-
-**Architecture Beyond Its Authors**
+**[Architecture Beyond Its Authors](./31-Architecture_Beyond_Its_Authors.md)**

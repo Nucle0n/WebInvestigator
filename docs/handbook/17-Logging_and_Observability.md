@@ -331,12 +331,10 @@ Observability transforms execution into understanding.
 
 ## Next Chapter
 
-As the framework continues growing, another challenge inevitably appears:
+Understanding how the framework behaves is also the first step toward improving it.
 
-**Performance.**
+Meaningful optimization depends on observation and measurement rather than intuition.
 
-How can WebInvestigator remain efficient while preserving clarity?
+The next chapter explores Performance Without Premature Optimization, explaining why WebInvestigator favors evidence over speculation when making performance decisions.
 
-More importantly, when should performance optimizations be introduced—and when should they deliberately be avoided?
-
-The next chapter explores why maintainable software often begins by ignoring performance, only to improve it later with confidence.
+**[Performance Without Premature Optimization](./18-Performance_Without_Premature_Optimization.md)**

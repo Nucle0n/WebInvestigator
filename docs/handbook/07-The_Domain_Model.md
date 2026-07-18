@@ -430,8 +430,10 @@ With one, every new feature naturally integrates into an already coherent system
 
 ## Next Chapter
 
-Having established the language spoken by the framework, the next chapter explores the components responsible for creating that language:
+A shared language is only valuable if every component speaks it consistently.
 
-**The Analyzer Architecture.**
+Within WebInvestigator, that responsibility belongs to the analyzers.
 
-We will examine why analyzers are intentionally small, why each performs exactly one responsibility, and how this design allows the framework to continue growing without becoming increasingly complex.
+The next chapter explores the analyzer architecture, explaining why small, independent components remain one of the framework's greatest strengths as it continues to evolve.
+
+**[The Analyzer Architecture](./08-The_Analyzer_Architecture.md)**

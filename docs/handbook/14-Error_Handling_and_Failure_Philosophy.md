@@ -223,12 +223,10 @@ By treating resilience as an architectural principle instead of an afterthought,
 
 ## Next Chapter
 
-The next chapter examines another often-overlooked architectural concern:
+A robust framework is defined not only by how it handles failures, but also by how it adapts to different environments.
 
-**Configuration as Architecture.**
+That adaptability should come from configuration, not from modifying the source code.
 
-Why should configuration remain separate from behavior?
+The next chapter explores Configuration as Architecture, explaining why separating operational choices from implementation logic is essential to building software that evolves gracefully.
 
-How does a well-designed configuration system simplify future evolution?
-
-These seemingly simple questions have surprisingly deep architectural consequences.
+**[Configuration as Architecture](./15-Configuration_as_Architecture.md)**

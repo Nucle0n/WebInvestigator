@@ -285,18 +285,12 @@ They are often those who know precisely what does not need to be built.
 
 ---
 
-## Next Part
+## Next Chapter
 
-This concludes the architectural principles that shaped WebInvestigator.
+Knowing when to reject unnecessary complexity is only part of an architect's responsibility.
 
-The final part of this handbook looks beyond the current implementation.
+The greater challenge is ensuring that a project can continue evolving without abandoning the principles that gave it its identity.
 
-How might the framework evolve over the coming years?
+The next chapter explores Evolving Without Losing Identity, explaining how architecture can embrace change while remaining faithful to its core design principles.
 
-Which capabilities genuinely deserve to be added?
-
-And which principles should remain unchanged regardless of future technologies?
-
-The next chapter begins this discussion by exploring the future of the project itself.
-
-**Evolving Without Losing Identity**
+**[Evolving Without Losing Identity](./29-Evolving_Without_Losing_Identity.md)**

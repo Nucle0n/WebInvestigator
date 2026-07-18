@@ -409,6 +409,10 @@ This simple rule explains most architectural decisions found throughout the proj
 
 ## Next Chapter
 
-Now that the overall architecture has been introduced, the next chapter explores the repository itself.
+A good architecture should be visible beyond diagrams.
 
-Rather than discussing execution flow, it explains why the project is organized into its current directory structure and why each package exists.
+It should also be reflected in the way the source code is organized.
+
+The next chapter explains how WebInvestigator's repository structure mirrors its architectural responsibilities, making the project easier to navigate, maintain and extend.
+
+**[Project Structure](./05-Project_Structure.md)**

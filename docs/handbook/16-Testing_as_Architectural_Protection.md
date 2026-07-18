@@ -285,16 +285,10 @@ By continuously verifying that each component fulfills its intended responsibili
 
 ## Next Chapter
 
-Architecture defines responsibilities.
+Protecting architecture does not end when the tests pass.
 
-Tests verify them.
+A framework must also be able to explain its behavior while an investigation is running.
 
-The next chapter explores another essential aspect of long-lived software:
+The next chapter explores Logging and Observability, explaining why making the framework's actions visible is essential to building software that remains understandable and trustworthy.
 
-**Logging and Observability.**
-
-How should an investigation framework explain what it is doing?
-
-What information should be recorded?
-
-And how can diagnostic information remain useful without overwhelming the investigator?
+**[Logging and Observability](./17-Logging_and_Observability.md)**

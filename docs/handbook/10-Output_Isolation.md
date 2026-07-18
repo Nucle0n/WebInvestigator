@@ -396,14 +396,12 @@ Together, they create an architecture capable of supporting new interfaces witho
 
 ---
 
-## Next Chapter
+## Next Part
 
-Having explored how information leaves the framework, the next chapter examines another essential architectural principle:
+The core architecture of WebInvestigator has now been established.
 
-**Loose Coupling and Dependency Management.**
+Understanding a software architecture, however, involves more than knowing how its components are organized. It also requires understanding the design principles that allow those components to remain maintainable as the framework evolves.
 
-Why should components know as little as possible about one another?
+The next part begins by exploring Loose Coupling and Dependency Management, introducing one of the fundamental principles that shapes every architectural decision throughout WebInvestigator.
 
-How can independent modules still collaborate effectively?
-
-These questions lie at the foundation of every maintainable software architecture.
+**[Loose Coupling and Dependency Management](./11-Loose_Coupling_and_Dependency_Management.md)**

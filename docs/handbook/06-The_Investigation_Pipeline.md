@@ -473,8 +473,10 @@ This property is one of the main reasons why the architecture has remained maint
 
 ## Next Chapter
 
-Having followed data through the framework, we are now ready to examine one of its most important architectural concepts:
+Data does not simply move through the architecture.
 
-**The Domain Model.**
+It must also be represented in a way that every component can understand consistently.
 
-The next chapter explains why WebInvestigator relies on shared models, how they define a common language between architectural layers, and why this decision became one of the cornerstones of the project.
+The next chapter introduces the Domain Model, explaining how shared models provide a common language that keeps the framework coherent as it continues to grow.
+
+**[The Domain Model](./07-The_Domain_Model.md)**

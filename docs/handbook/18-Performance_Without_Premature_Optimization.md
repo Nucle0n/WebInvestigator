@@ -280,10 +280,10 @@ It ensures that every optimization solves a real problem and preserves the archi
 
 ## Next Chapter
 
-Performance naturally raises another question.
+Performance improvements should emerge from good architecture rather than compensate for poor design.
 
-As the framework grows, should every investigation execute analyzers in the same order?
+Parallel execution is one of the clearest examples of this principle.
 
-Or should execution become configurable?
+The next chapter explores Designing for Parallelism, explaining why independent components naturally create opportunities for concurrency without adding unnecessary complexity.
 
-The next chapter explores how pipelines evolve while remaining predictable.
+**[Designing for Parallelism](./19-Designing_for_Parallelism.md)**

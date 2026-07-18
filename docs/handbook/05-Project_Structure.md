@@ -409,10 +409,12 @@ It has become documentation.
 
 ---
 
-## Next Chapter
+## Next Part
 
-The next chapter explores the framework's execution pipeline.
+The foundations of WebInvestigator are now in place.
 
-Rather than focusing on directories, it follows the life cycle of information—from the moment evidence enters the system to the production of structured analysis results.
+Understanding an architecture, however, requires more than knowing its philosophy and organization. It requires observing how its components collaborate to transform raw evidence into meaningful knowledge.
 
-It is there that the interactions between scanners, analyzers, models and outputs become fully visible.
+The next part begins by exploring the Investigation Pipeline, following the complete life cycle of an investigation from discovery to structured analysis.
+
+**[The Investigation Pipeline](./06-The_Investigation_Pipeline.md)**

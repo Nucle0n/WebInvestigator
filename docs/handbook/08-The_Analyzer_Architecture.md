@@ -450,10 +450,10 @@ This property lies at the core of the framework's long-term maintainability.
 
 ## Next Chapter
 
-The previous chapters explained how analyzers produce knowledge.
+Independent analyzers can only work together if their knowledge is brought together coherently.
 
-The next chapter examines the object that unifies all of that knowledge:
+That responsibility belongs to a single object at the center of the architecture.
 
-**AnalysisResult.**
+The next chapter introduces `AnalysisResult`, explaining why this deceptively simple model became one of the framework's most important architectural decisions.
 
-Although it appears deceptively simple, it solves one of the most important orchestration problems in the entire architecture.
+**[AnalysisResult](./09-AnalysisResult.md)**
