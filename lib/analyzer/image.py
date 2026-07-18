@@ -66,7 +66,7 @@ def find_matching_phashes(
     images: list[ImageInfo],
     max_distance: int,
 ) -> list[SimilarImageGroup]:
-    """Group images with identical or sufficiently close perceptual hashes."""
+    """Group images into connected perceptual similarity clusters."""
 
     if max_distance < 0:
         raise ValueError("max_distance must be greater than or equal to 0")
@@ -82,22 +82,12 @@ def find_matching_phashes(
             [],
         ).append(image)
 
-    groups: list[SimilarImageGroup] = []
-
-    # Preserve groups of images sharing exactly the same pHash.
-    for matching_images in images_by_phash.values():
-        if len(matching_images) < 2:
-            continue
-
-        groups.append(
-            SimilarImageGroup(
-                max_distance=0,
-                images=matching_images,
-            )
-        )
-
-    # Compare each pair of distinct pHashes.
     unique_phashes = list(images_by_phash)
+
+    similarity_graph: dict[str, list[str]] = {
+        phash: []
+        for phash in unique_phashes
+    }
 
     for first_index, first_phash in enumerate(unique_phashes):
         for second_phash in unique_phashes[first_index + 1:]:
@@ -106,18 +96,67 @@ def find_matching_phashes(
                 second_phash,
             )
 
-            if distance == 0 or distance > max_distance:
+            if distance > max_distance:
                 continue
 
-            groups.append(
-                SimilarImageGroup(
-                    max_distance=distance,
-                    images=[
-                        *images_by_phash[first_phash],
-                        *images_by_phash[second_phash],
-                    ],
-                )
+            similarity_graph[first_phash].append(second_phash)
+            similarity_graph[second_phash].append(first_phash)
+
+    groups: list[SimilarImageGroup] = []
+    visited_phashes: set[str] = set()
+
+    for starting_phash in unique_phashes:
+        if starting_phash in visited_phashes:
+            continue
+
+        component_phashes: list[str] = []
+        phashes_to_visit = [starting_phash]
+
+        while phashes_to_visit:
+            current_phash = phashes_to_visit.pop()
+
+            if current_phash in visited_phashes:
+                continue
+
+            visited_phashes.add(current_phash)
+            component_phashes.append(current_phash)
+
+            phashes_to_visit.extend(
+                similarity_graph[current_phash]
             )
+
+        component_images = sorted(
+            (
+                image
+                for image in images
+                if image.phash in component_phashes
+            ),
+            key=lambda image: image.relative_path,
+        )
+
+        if len(component_images) < 2:
+            continue
+
+        greatest_distance = 0
+
+        for first_index, first_phash in enumerate(component_phashes):
+            for second_phash in component_phashes[first_index + 1:]:
+                distance = phash_distance(
+                    first_phash,
+                    second_phash,
+                )
+
+                greatest_distance = max(
+                    greatest_distance,
+                    distance,
+                )
+
+        groups.append(
+            SimilarImageGroup(
+                max_distance=greatest_distance,
+                images=component_images,
+            )
+        )
 
     return groups
 
