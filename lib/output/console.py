@@ -214,10 +214,13 @@ def display_similar_images(
 
     for group in similar_images:
         print("-" * 76)
-        print(f"pHash : {group.images[0].phash}")
+        print(f"Distance maximale : {group.max_distance}")
         print()
 
         for image in group.images:
-            print(f"  - {image.relative_path}")
+            print(
+                f"  - {image.relative_path} "
+                f"(pHash: {image.phash})"
+            )
 
         print()

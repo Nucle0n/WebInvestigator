@@ -1,6 +1,8 @@
 from pathlib import Path
 
 
+PHASH_MAX_DISTANCE = 2
+
 PROJECT_ROOT = Path(__file__).resolve().parent
 
 ACTIVE_INVESTIGATION = "AtelierDeLea"

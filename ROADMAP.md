@@ -79,8 +79,8 @@ Goals:
 
 Next improvements:
 
-- [ ] configurable Hamming distance threshold
-- [ ] perceptual similarity clustering
+- [x] configurable Hamming distance threshold
+- [ ] connected similarity clustering
 - [ ] EXIF extraction
 - [ ] image thumbnails
 
