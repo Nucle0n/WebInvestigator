@@ -9,7 +9,7 @@ Each ADR explains:
 - the consequences of that decision,
 - the alternatives that were considered.
 
-Unlike the Architecture Handbook, which explains the architectural philosophy of the project, ADRs record the reasoning behind individual architectural choices.
+Unlike the [Architecture Handbook](../handbook/README.md), which explains the architectural philosophy of the project, ADRs record the reasoning behind individual architectural choices.
 
 ---
 
@@ -101,6 +101,21 @@ Once assigned, an ADR number is never reused.
 
 ## Current Collection
 
-The first ADRs document the architectural foundations of WebInvestigator.
+The following ADRs document the architectural foundations and ongoing evolution of WebInvestigator.
 
-Subsequent ADRs record the project's architectural evolution as new decisions are made.
+| ADR | Title |
+|-----|-------|
+| [ADR-0001](0001-analysisresult-as-the-central-aggregation-model.md) | AnalysisResult as the Central Aggregation Model |
+| [ADR-0002](0002-independent-analyzers.md) | Independent Analyzers |
+| [ADR-0003](0003-passive-domain-models.md) | Passive Domain Models |
+| [ADR-0004](0004-output-isolation.md) | Output Isolation |
+| [ADR-0005](0005-configuration-as-a-single-entry-point.md) | Configuration as a Single Entry Point |
+| [ADR-0006](0006-offline-first-architecture.md) | Offline-First Architecture |
+| [ADR-0007](0007-investigation-pipeline.md) | Investigation Pipeline |
+| [ADR-0008](0008-error-handling-philosophy.md) | Error Handling Philosophy |
+| [ADR-0009](0009-observability-as-an-architectural-concern.md) | Observability as an Architectural Concern |
+| [ADR-0010](0010-incremental-architecture.md) | Incremental Architecture |
+| [ADR-0011](0011-testing-as-an-architectural-safety-net.md) | Testing as an Architectural Safety Net |
+| [ADR-0012](0012-stable-architectural-interfaces.md) | Stable Architectural Interfaces |
+
+As WebInvestigator evolves, this collection will continue to grow, preserving the architectural history of the project one decision at a time.
