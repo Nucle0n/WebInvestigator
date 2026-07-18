@@ -364,6 +364,10 @@ They define the identity of the project.
 
 ## Next Chapter
 
-Now that the project's philosophy has been established, the next chapter introduces the overall architecture of WebInvestigator.
+Principles provide direction.
 
-Rather than examining individual modules, it presents the framework as a complete system, following the journey of data from raw evidence to structured analysis reports.
+Architecture turns those principles into a concrete design.
+
+The next chapter presents WebInvestigator as a complete system, following the flow of data from digital evidence to structured analysis results.
+
+**[Overall Architecture](./04-Overall_Architecture.md)**

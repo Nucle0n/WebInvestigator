@@ -305,10 +305,10 @@ Healthy architecture depends not only on good initial decisions, but also on the
 
 ## Next Chapter
 
-Architectural problems do not always arise accidentally.
+Recognizing architectural problems is only the first step.
 
-Sometimes they are introduced deliberately in the name of convenience.
+The next challenge is understanding which seemingly reasonable decisions are most likely to create those problems in the first place.
 
-The next chapter examines several architectural shortcuts that WebInvestigator consciously refused to take, and explains why avoiding them ultimately produced a healthier framework.
+The next chapter explores Mistakes We Intentionally Avoided, explaining why resisting attractive shortcuts often contributes more to long-term architectural health than adopting clever solutions.
 
-**Mistakes We Intentionally Avoided.**
+**[Mistakes We Intentionally Avoided](./26-Mistakes_We_Intentionally_Avoided.md)**

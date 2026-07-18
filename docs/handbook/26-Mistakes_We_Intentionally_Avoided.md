@@ -355,14 +355,12 @@ It is the cumulative result of many deliberate refusals.
 
 ---
 
-## Next Chapter
+## Next Part
 
-Every architectural decision tells a story.
+WebInvestigator has now reached the point where architecture is no longer simply designed or evolved. It must also be preserved over time.
 
-Understanding *what* was decided is useful.
+Long-lived software depends not only on sound technical decisions, but also on the ability to communicate architectural intent, guide future contributors and ensure that evolution remains consistent with the project's original principles.
 
-Understanding *why* it was decided is far more valuable.
+The next part begins by exploring Architectural Decision Records (ADR), introducing how architectural knowledge can be preserved alongside the software itself.
 
-The next chapter introduces one of the most effective practices for preserving architectural knowledge over time:
-
-**Architectural Decision Records (ADR).**
+**[Architectural Decision Records (ADR)](./27-Architectural_Decision_Records.md)**

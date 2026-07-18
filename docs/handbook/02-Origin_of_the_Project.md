@@ -216,45 +216,7 @@ It was to build a transparent, extensible and developer-friendly foundation upon
 
 ---
 
-# 2.7 Offline First
-
-Another design choice appeared very early.
-
-Whenever possible, analyses should not depend on external services.
-
-Websites disappear.
-
-Domains expire.
-
-Remote APIs evolve.
-
-Rate limits change.
-
-Commercial services become unavailable.
-
-Evidence should remain analyzable years after it has been collected.
-
-For that reason, WebInvestigator primarily operates on locally available artefacts.
-
-Downloaded websites.
-
-Images.
-
-Metadata.
-
-Archives.
-
-Mirror copies.
-
-The framework analyses evidence rather than relying on live infrastructure whenever possible.
-
-This philosophy greatly improves reproducibility.
-
-Any investigator possessing the same dataset should be capable of obtaining identical results.
-
----
-
-# 2.8 The Birth of WebInvestigator
+# 2.7 The Birth of WebInvestigator
 
 Eventually, the accumulation of reusable components made the conclusion unavoidable.
 
@@ -280,7 +242,7 @@ WebInvestigator provides the tools.
 
 ---
 
-# 2.9 Lessons Learned
+# 2.8 Lessons Learned
 
 Looking back, one observation stands out.
 
@@ -306,8 +268,10 @@ WebInvestigator exists because that opportunity was recognized before it was los
 
 ## Next Chapter
 
-The next chapter introduces the philosophy of the project.
+Understanding where WebInvestigator came from is only the beginning.
 
-Rather than describing software architecture, it explains the principles that guide every architectural decision made throughout the framework.
+Every lasting software project is guided by principles that extend far beyond its original purpose.
 
-These principles serve as the foundation upon which every future feature will be built.
+The next chapter presents the vision that has shaped every major architectural decision since the framework's creation.
+
+**[Project Vision](./03-Project_Vision.md)**

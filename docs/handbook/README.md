@@ -34,7 +34,7 @@ The handbook is intended to be read sequentially. Each chapter builds upon conce
 
 - [11. Loose Coupling and Dependency Management](11-Loose_Coupling_and_Dependency_Management.md)
 - [12. Separation of Responsibilities](12-Separation_of_Responsibilities.md)
-- [13. Abstraction and Generalization](13-Abstraction_and_Generalization.md)
+- [13. Abstraction Before Experience](13-Abstraction_Before_Experience.md)
 - [14. Error Handling and Failure Philosophy](14-Error_Handling_and_Failure_Philosophy.md)
 - [15. Configuration as Architecture](15-Configuration_as_Architecture.md)
 

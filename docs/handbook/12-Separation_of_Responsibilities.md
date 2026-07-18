@@ -385,12 +385,10 @@ Much of WebInvestigator's architecture can ultimately be understood as a continu
 
 ## Next Chapter
 
-The next chapter explores another question that every long-lived project eventually faces:
+Clear responsibilities do not automatically require sophisticated abstractions.
 
-**When should software become more generic?**
+Good architecture also depends on knowing when simplicity should take precedence over flexibility.
 
-Generalization is often presented as a virtue.
+The next chapter explores Abstraction Before Experience, explaining why WebInvestigator prefers concrete solutions until recurring patterns justify a more general design.
 
-In reality, premature generalization is responsible for a surprising amount of unnecessary complexity.
-
-We will examine why WebInvestigator deliberately resists abstraction until experience demonstrates that it is truly needed.
+**[Abstraction Before Experience](./13-Abstraction_Before_Experience.md)**

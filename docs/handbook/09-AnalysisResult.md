@@ -435,14 +435,10 @@ Its apparent simplicity hides one of the most influential architectural decision
 
 ## Next Chapter
 
-The next chapter examines another cornerstone of the architecture:
+Producing knowledge is only part of an investigation.
 
-**Output Isolation.**
+That knowledge must also be presented without compromising the architecture that created it.
 
-Why do analyzers never print?
+The next chapter explores Output Isolation, explaining why analysis and presentation remain strictly separated throughout the framework.
 
-Why are JSON exports implemented separately?
-
-Why is presentation considered an independent architectural layer?
-
-Although these choices initially appear to require more work, they dramatically reduce long-term complexity.
+**[Output Isolation](./10-Output_Isolation.md)**

@@ -259,10 +259,10 @@ The architecture is therefore parallel-ready rather than parallel-driven.
 
 ## Next Chapter
 
-Adding analyzers should become easier as the framework grows—not harder.
+An architecture that supports parallelism should also be able to accommodate future growth.
 
-The next chapter examines one of the defining characteristics of successful frameworks:
+New capabilities should integrate naturally without increasing architectural complexity.
 
-**Extensibility Without Complexity.**
+The next chapter explores Extensibility Without Complexity, explaining how WebInvestigator evolves by adding new components while preserving the stability of its existing architecture.
 
-How can new capabilities be introduced while keeping the architecture stable and understandable?
+**[Extensibility Without Complexity](./20-Extensibility_Without_Complexity.md)**

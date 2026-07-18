@@ -381,10 +381,10 @@ When in doubt, the simplest dependency is often the one that does not exist.
 
 ## Next Chapter
 
-Dependencies define how components relate to one another.
+Keeping components loosely coupled is only possible when each has a clearly defined purpose.
 
-The next chapter explores another equally important question:
+Architecture therefore depends not only on managing dependencies, but also on assigning responsibilities wisely.
 
-**How should responsibilities be distributed?**
+The next chapter explores Separation of Responsibilities, explaining how clearly defined roles help the framework remain understandable as it continues to grow.
 
-We will examine why WebInvestigator consistently favors small, focused components and how this philosophy naturally aligns with one of the oldest principles in software engineering: the Unix Philosophy.
+**[Separation of Responsibilities](./12-Separation_of_Responsibilities.md)**

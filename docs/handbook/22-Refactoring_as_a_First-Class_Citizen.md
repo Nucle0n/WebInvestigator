@@ -285,12 +285,10 @@ It is defined by its ability to change safely.
 
 ## Next Chapter
 
-Even well-designed software naturally drifts toward increasing complexity over time.
+Continuous refactoring exists for a reason.
 
-New features, evolving requirements and countless small decisions gradually reshape the architecture.
+Without ongoing care, every software system gradually becomes more complex over time.
 
-Before discussing technical debt and architectural debt, it is essential to understand the underlying force that causes both to emerge.
+The next chapter explores Software Entropy, explaining why preserving architectural quality requires continuous attention rather than occasional large-scale efforts.
 
-The next chapter explores this phenomenon:
-
-**Software Entropy.**
+**[Software Entropy](./23-Software_Entropy.md)**

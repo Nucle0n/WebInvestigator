@@ -279,14 +279,10 @@ WebInvestigator embraces continuous maintenance because preserving simplicity is
 
 ## Next Chapter
 
-Once entropy begins affecting a project, it usually manifests in recognizable forms.
+Software entropy does not affect every part of a framework in the same way.
 
-Some affect implementation.
+Some compromises remain localized, while others gradually weaken the architecture itself.
 
-Others affect the architecture itself.
+The next chapter explores Technical Debt versus Architectural Debt, explaining why distinguishing between implementation problems and architectural problems is essential to preserving a framework over the long term.
 
-Understanding the difference is essential.
-
-The next chapter explores one of the most misunderstood concepts in software engineering:
-
-**Technical Debt versus Architectural Debt.**
+**[Technical Debt versus Architectural Debt](./24-Technical_Debt_vs_Architectural_Debt.md)**

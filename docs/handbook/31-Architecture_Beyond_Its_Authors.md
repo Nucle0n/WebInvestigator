@@ -283,12 +283,10 @@ It continues growing even after its original creators step aside.
 
 ## Next Chapter
 
-Throughout this handbook, WebInvestigator has served as the thread connecting every architectural discussion.
+Architecture ultimately fulfills its purpose when it can be understood, challenged and extended by those who did not create it.
 
-The final chapter steps back one last time.
+That responsibility eventually passes to every new contributor—and, after this final chapter, to every reader of this handbook.
 
-It is no longer about this framework.
+The final chapter explores The Next Architect, explaining why the most important architecture you will design may not be WebInvestigator's, but your own.
 
-It is about the person reading these pages.
-
-**The Next Architect**
+**[The Next Architect](./32-The_Next_Architect.md)**

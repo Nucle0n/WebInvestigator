@@ -250,16 +250,12 @@ Growth becomes additive rather than disruptive.
 
 ---
 
-## Next Chapter
+## Next Part
 
-As frameworks mature, another challenge inevitably appears.
+The engineering practices that support a healthy architecture are now in place.
 
-Some interfaces become widely used.
+Even the best-designed frameworks, however, must eventually face a more difficult challenge: evolving over time without losing the qualities that made them successful in the first place.
 
-Others begin evolving.
+The next part begins by exploring API Stability and Evolution, introducing the long-term architectural decisions that allow software to grow while preserving continuity.
 
-How can those interfaces change without breaking existing code?
-
-The next chapter explores one of the most delicate aspects of long-lived software:
-
-**API Stability and Evolution.**
+**[API Stability and Evolution](./21-API_Stability_and_Evolution.md)**

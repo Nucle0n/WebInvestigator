@@ -295,12 +295,10 @@ In doing so, they transform architecture from a collection of implementation det
 
 ## Next Chapter
 
-Every architectural decision ultimately reflects a deeper responsibility.
+Preserving architectural knowledge is only valuable if it continues guiding future decisions.
 
-Knowing **what** to build is important.
+Ultimately, architecture depends not only on documenting good ideas, but also on exercising the discipline to reject unnecessary ones.
 
-Knowing **what not to build** is often even more important.
+The next chapter explores When to Say No, explaining why thoughtful restraint is often one of the defining characteristics of experienced software architects.
 
-The final chapter of this section explores one of the defining characteristics of experienced software architects:
-
-**When to Say No.**
+**[When to Say No](./28-When_to_Say_No.md)**

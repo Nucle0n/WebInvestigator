@@ -311,12 +311,10 @@ WebInvestigator deliberately prioritizes protecting its architecture because hea
 
 ## Next Chapter
 
-Architectural debt rarely appears all at once.
+Architectural debt rarely appears without warning.
 
-Instead, it leaves subtle warning signs long before the architecture begins to fail.
+Long before it becomes difficult to evolve a framework, subtle signals begin revealing that its structure is drifting away from its original design.
 
-Recognizing these signals early is one of the most valuable skills a software architect can develop.
+The next chapter explores Architectural Smells, explaining how recognizing these early warning signs allows architects to intervene before minor concerns become major architectural problems.
 
-The next chapter explores these warning signs through the concept of:
-
-**Architectural Smells.**
+**[Architectural Smells](./25-Architectural_Smells.md)**

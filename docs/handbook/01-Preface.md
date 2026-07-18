@@ -226,4 +226,14 @@ Everything described in this handbook ultimately derives from that single princi
 
 ---
 
-*Continue with Chapter 2 — "Origin of the Project".*
+## Next Chapter
+
+Every software project begins somewhere.
+
+Some begin with a specification.
+
+Others begin with a problem worth solving.
+
+The next chapter retraces how a simple investigation gradually evolved into the foundations of WebInvestigator.
+
+**[The Origin of the Project](./02-Origin_of_the_Project.md)**

@@ -285,10 +285,12 @@ It gives configuration a clearly defined role.
 
 ---
 
-## Next Chapter
+## Next Part
 
-The next chapter moves from architecture to engineering practice.
+The architectural principles that shape WebInvestigator have now been established.
 
-We will examine why testing is not merely about finding bugs, but about protecting architectural decisions over time.
+Designing a good architecture, however, is only the beginning. Long-lived software also depends on engineering practices that protect those principles as the framework grows and changes.
 
-In long-lived software, tests often become the guardians of the architecture itself.
+The next part begins by exploring Testing as Architectural Protection, introducing the first of several engineering practices that help preserve architectural quality throughout the life of a project.
+
+**[Testing as Architectural Protection](./16-Testing_as_Architectural_Protection.md)**

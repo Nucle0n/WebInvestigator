@@ -281,8 +281,10 @@ Stable contracts make sustainable evolution possible.
 
 ## Next Chapter
 
-As software grows, maintaining architecture becomes less about writing new code and more about improving existing code.
+Stable interfaces allow software to evolve without disrupting the components that depend upon them.
 
-The next chapter explores an activity often misunderstood by developers:
+That evolution also requires continuously improving the internal structure of the framework while preserving its observable behavior.
 
-**Refactoring as a First-Class Citizen.**
+The next chapter explores Refactoring as a First-Class Citizen, explaining why continuous refinement is essential to keeping architecture healthy over the lifetime of a project.
+
+**[Refactoring as a First-Class Citizen](./22-Refactoring_as_a_First-Class_Citizen.md)**

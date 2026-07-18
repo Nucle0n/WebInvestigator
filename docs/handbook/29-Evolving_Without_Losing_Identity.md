@@ -285,12 +285,12 @@ WebInvestigator should therefore judge future decisions not by their novelty, bu
 
 ---
 
-## Next Chapter
+## Next Part
 
-One technology is already transforming software engineering faster than any other.
+A well-designed architecture should remain valuable long after today's technologies have changed.
 
-Artificial Intelligence.
+The final part of this handbook looks beyond the framework itself, exploring how architectural thinking can adapt to new tools, new contributors and future generations of software.
 
-The next chapter explores how AI may influence WebInvestigator in the coming years—and why architecture should remain responsible for deciding where that influence belongs.
+The next part begins by examining the role Artificial Intelligence should play within that future.
 
-**AI as a Tool, Not an Architect**
+**[AI as a Tool, Not an Architect](./30-AI_as_a_Tool_Not_an_Architect.md)**
