@@ -8,6 +8,7 @@ from config import (
 )
 from lib.analyzer.duplicate import find_duplicate_images
 from lib.analyzer.filename import find_suspicious_filenames
+from lib.analyzer.html import analyze_html_files
 from lib.analyzer.image import (
     analyze_images,
     find_matching_phashes,
@@ -17,6 +18,7 @@ from lib.model.analysis import AnalysisResult
 from lib.output.console import (
     display_duplicate_images,
     display_filename_findings,
+    display_html_pages,
     display_images,
     display_inventory,
     display_oembed_files,
@@ -84,6 +86,11 @@ def main() -> None:
         analysis.inventory
     )
     display_oembed_files(analysis.oembed_files)
+
+    analysis.html_pages = analyze_html_files(
+        analysis.inventory
+    )
+    display_html_pages(analysis.html_pages)
 
     analysis.images = analyze_images(
         analysis.inventory

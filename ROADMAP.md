@@ -40,7 +40,7 @@ dedicated to a single investigation.
 - [x] Filename Analyzer
 - [x] OEmbed Analyzer
 - [x] Image Analyzer
-- [ ] HTML Analyzer
+- [x] HTML Analyzer
 - [ ] JavaScript Analyzer
 - [ ] CSS Analyzer
 - [ ] Shopify Analyzer
@@ -55,7 +55,9 @@ dedicated to a single investigation.
 ## Tests
 
 - [x] Scanner tests
-- [ ] Analyzer tests
+- [x] Image Analyzer tests
+- [x] HTML Analyzer tests
+- [ ] Filename Analyzer tests
 - [ ] Output tests
 
 # Future Infrastructure

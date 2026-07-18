@@ -2,6 +2,7 @@ from collections import Counter
 
 from lib.model.duplicate import DuplicateImageGroup
 from lib.model.filename import FilenameFinding
+from lib.model.html import HTMLPage
 from lib.model.image import ImageInfo
 from lib.model.inventory import Inventory
 from lib.model.oembed import OEmbedFile
@@ -108,6 +109,36 @@ def display_oembed_files(files: list[OEmbedFile]) -> None:
 
         print()
    
+
+def display_html_pages(
+    html_pages: list[HTMLPage],
+) -> None:
+    """Affiche les pages HTML analysées."""
+
+    print()
+    print("=" * 76)
+    print("PAGES HTML")
+    print("=" * 76)
+
+    if not html_pages:
+        print("Aucune page HTML détectée.")
+        return
+
+    print(f"{len(html_pages)} page(s)\n")
+
+    for html_page in html_pages:
+        print("-" * 76)
+        print(html_page.relative_path)
+        print("-" * 76)
+
+        if html_page.title is None:
+            title = "Aucun titre"
+        else:
+            title = html_page.title
+
+        print(f"{'Title':20} : {title}")
+        print()
+
 
 def display_images(images: list[ImageInfo]) -> None:
     """Affiche les informations techniques des images analysées."""
